@@ -3,6 +3,8 @@ package br.edu.unoesc.mongodbAula;
 import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
 import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 
+import java.util.Date;
+
 import org.bson.codecs.BsonValueCodecProvider;
 import org.bson.codecs.DocumentCodecProvider;
 import org.bson.codecs.IterableCodecProvider;
@@ -67,6 +69,13 @@ public class Main {
 				System.out.println(" total de comentários"+noticia.getComentario().size());
 			}
 		}
+		
+		Noticia noticiaNova = new Noticia();
+		noticiaNova.setAutor("Teste objeto");
+		noticiaNova.setData_publicacao(new Date());
+		noticiaNova.setDescricao("Descrição de uma noticia de objeto");
+		
+		noticias.insertOne(noticiaNova);
 		
 //		
 //		System.out.println("-----Inicio do for-----");
