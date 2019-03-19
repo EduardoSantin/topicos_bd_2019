@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Noticia {
 
+	private Long codigo;
 	private String titulo;
 	private String autor;
 	private Date data_publicacao;
@@ -60,6 +61,14 @@ public class Noticia {
 
 	public void setComentario(List<Comentario> comentario) {
 		this.comentario = comentario;
+	}
+
+	public Long getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
 	}
 
 }
