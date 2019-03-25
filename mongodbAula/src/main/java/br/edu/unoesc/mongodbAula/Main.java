@@ -29,6 +29,9 @@ public class Main {
 			System.out.print(" Titulo: "+noticia.getTitulo());
 			System.out.print(" Autor: "+noticia.getAutor());
 			System.out.println(" Codigo: "+noticia.getCodigo());
+			noticia.getComentario().forEach(comentario->{
+				System.out.println(comentario.getDescricao());
+			});
 		});
 
 	}
