@@ -10,17 +10,20 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
+import xmlAula2019.model.Cidade;
 import xmlAula2019.model.Endereco;
 import xmlAula2019.model.Pessoa;
 import xmlAula2019.model.Pessoas;
+import xmlAula2019.model.Uf;
 
 public class Main {
 
 	
 	public static void main(String[] args) {
-		Endereco endereco = new Endereco("Rua teste 1", "bairro 1");
+		Cidade xanxere = new Cidade("Xanxerê",new Uf("Santa catarina","SC"));
+		Endereco endereco = new Endereco("Rua teste 1", "bairro 1", xanxere);
 		Pessoa pessoa = new Pessoa("André", 87654, endereco);
-		Endereco endereco2 = new Endereco("Rua teste 2", "bairro 2");
+		Endereco endereco2 = new Endereco("Rua teste 2", "bairro 2",xanxere);
 		Pessoa pessoa2 = new Pessoa("Joaquim", 87654, endereco2);
 		
 		List<Pessoa> pessoas = new ArrayList<>();
@@ -30,7 +33,7 @@ public class Main {
 		
 		try {
 			JAXBContext jaxbContext = JAXBContext.newInstance(Pessoa.class, 
-					Pessoas.class);
+					Pessoas.class, Cidade.class, Uf.class, Endereco.class);
 			
 			Marshaller marshaller = jaxbContext.createMarshaller();
 			marshaller.marshal(pessoa, new File("pessoa.xml"));

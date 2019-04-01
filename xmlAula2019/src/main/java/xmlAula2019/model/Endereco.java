@@ -10,15 +10,18 @@ public class Endereco {
 	private String rua;
 	@XmlElement
 	private String bairro;
+	@XmlElement
+	private Cidade cidade;
 	
 	public Endereco(){
 		
 	}
 	
-	public Endereco(String rua, String bairro) {
+	public Endereco(String rua, String bairro, Cidade cidade) {
 		super();
 		this.rua = rua;
 		this.bairro = bairro;
+		this.cidade = cidade;
 	}
 
 	public String getRua() {
