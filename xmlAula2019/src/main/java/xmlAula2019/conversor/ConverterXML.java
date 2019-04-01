@@ -12,17 +12,9 @@ public class ConverterXML<T> {
 
 	private JAXBContext jaxbContext;
 	
-	public ConverterXML(Class<?>... classes){
+	public ConverterXML(Class<?> classePrincipal){
 		try {
-			jaxbContext = JAXBContext.newInstance(classes);
-		} catch (JAXBException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public ConverterXML(String contextPath) {
-		try {
-			jaxbContext = JAXBContext.newInstance(contextPath);
+			jaxbContext = JAXBContext.newInstance(classePrincipal);
 		} catch (JAXBException e) {
 			e.printStackTrace();
 		}

@@ -7,17 +7,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Pessoa {
 
-	@XmlAttribute
+	@XmlAttribute(name = "nome", required = true)
 	private String nome;
-	
-	@XmlElement
+
+	@XmlElement(name="cpf", required = true)
 	private Integer CPF;
-	
+
 	@XmlElement
 	private Endereco endereco;
-	
-	public Pessoa(){
-		
+
+	public Pessoa() {
+
 	}
 
 	public Pessoa(String nome, Integer cPF, Endereco endereco) {
@@ -34,8 +34,8 @@ public class Pessoa {
 	public Integer getCPF() {
 		return CPF;
 	}
-	
-	public Endereco getEndereco(){
+
+	public Endereco getEndereco() {
 		return endereco;
 	}
 }

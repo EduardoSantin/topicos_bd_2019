@@ -30,8 +30,7 @@ public class Main {
 		pessoas.add(pessoa);
 		pessoas.add(pessoa2);
 
-		ConverterXML<Pessoas> conversor = new ConverterXML<>(Pessoa.class, 
-				Pessoas.class, Endereco.class, Cidade.class, Uf.class);
+		ConverterXML<Pessoas> conversor = new ConverterXML<>(Pessoas.class);
 		
 		conversor.gerarXml(new File("pessoas.xml"), new Pessoas(pessoas));
 		
