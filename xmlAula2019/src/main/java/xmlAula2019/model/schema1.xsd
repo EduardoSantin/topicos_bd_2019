@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="cidade" type="cidade"/>
+
+  <xs:element name="endereco" type="endereco"/>
+
+  <xs:element name="pessoa" type="pessoa"/>
+
+  <xs:element name="pessoas" type="pessoas"/>
+
+  <xs:complexType name="cidade">
+    <xs:sequence>
+      <xs:element name="nome" type="xs:string" minOccurs="0"/>
+      <xs:element name="uf" type="uf" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="uf">
+    <xs:sequence>
+      <xs:element name="nome" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="sigla" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="endereco">
+    <xs:sequence>
+      <xs:element name="rua" type="xs:string" minOccurs="0"/>
+      <xs:element name="bairro" type="xs:string" minOccurs="0"/>
+      <xs:element ref="cidade" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pessoa">
+    <xs:sequence>
+      <xs:element name="cpf" type="xs:int"/>
+      <xs:element ref="endereco" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="nome" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="pessoas">
+    <xs:sequence>
+      <xs:element ref="pessoa" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
